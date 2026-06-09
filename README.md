@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Profielentool API
 
 A FastAPI-based REST API service for the Profielentool application, designed to be deployed on Render.
@@ -143,6 +142,3 @@ API endpoints follow RESTful conventions. Documentation is auto-generated and av
 ## Support
 
 For issues and questions, please open an issue in the repository.
-=======
-# profielentoolbox_api
->>>>>>> origin/main
