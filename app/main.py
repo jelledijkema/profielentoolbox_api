@@ -1,6 +1,6 @@
 """Main application entry point for Profielentool API"""
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
@@ -247,16 +247,16 @@ async def get_dwarsprofiel():
   ]
 }
 
-@app.api_route("/dwarsprofiel/validate", methods=["GET", "POST"])
-async def validate_dwarsprofiel(request: Request):
-    data = await request.json()
+# @app.api_route("/dwarsprofiel/validate", methods=["GET", "POST"])
+# async def validate_dwarsprofiel(request: Request):
+#     data = await request.json()
 
-    # Valideer of 'geometry' bestaat
-    if "geometry" not in data:
-        raise HTTPException(status_code=400, detail="Ontbrekend veld: geometry")
+#     # Valideer of 'geometry' bestaat
+#     if "geometry" not in data:
+#         raise HTTPException(status_code=400, detail="Ontbrekend veld: geometry")
 
-    if validate_is_linestring(data["geometry"]) == False:
-        raise HTTPException(status_code=400, detail="Ongeldige geometry: moet een LineString zijn")
+#     if validate_is_linestring(data["geometry"]) == False:
+#         raise HTTPException(status_code=400, detail="Ongeldige geometry: moet een LineString zijn")
 
 
 if __name__ == "__main__":
