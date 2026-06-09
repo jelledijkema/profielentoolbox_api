@@ -44,7 +44,7 @@ Profielentool_API/
 
 ## Prerequisites
 
-- Python 3.9+ (3.10.12)
+- Python 3.10.12
 - pip and venv
 
 ## Installation
@@ -68,7 +68,7 @@ Profielentool_API/
 ### Running the Application Locally
 
 ```bash
-uvicorn app.main:app --reload
+python3 -m uvicorn app.main:app --reload
 ```
 
 The API will be available at `http://localhost:8000`
