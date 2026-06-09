@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
+from api.models.schema import default_dwarsprofiel
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -36,6 +37,11 @@ async def health():
     """Health check endpoint"""
     return {"status": "healthy"}
 
+
+@app.get("/dwarsprofiel")
+async def get_dwarsprofiel():
+    """Geeft een standaard GeoJSON-dwarsprofiel terug."""
+    return default_dwarsprofiel
 
 if __name__ == "__main__":
     import uvicorn
