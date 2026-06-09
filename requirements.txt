@@ -11,52 +11,87 @@ annotated-types==0.7.0
 anyio==3.7.1
     # via
     #   fastapi
+    #   httpcore
     #   starlette
     #   watchfiles
+certifi==2026.5.20
+    # via
+    #   httpcore
+    #   httpx
+    #   requests
+charset-normalizer==3.4.7
+    # via requests
 click==8.4.1
     # via uvicorn
 exceptiongroup==1.3.1
-    # via anyio
+    # via
+    #   anyio
+    #   pytest
 fastapi==0.104.1
     # via -r requirements.in
 greenlet==3.5.1
     # via sqlalchemy
-h11==0.16.0
-    # via uvicorn
+h11==0.14.0
+    # via
+    #   httpcore
+    #   uvicorn
+httpcore==0.17.3
+    # via httpx
 httptools==0.8.0
     # via uvicorn
+httpx==0.24.1
+    # via -r requirements.in
 idna==3.18
-    # via anyio
+    # via
+    #   anyio
+    #   httpx
+    #   requests
+iniconfig==2.3.0
+    # via pytest
 mako==1.3.12
     # via alembic
 markupsafe==3.0.3
     # via mako
+packaging==26.2
+    # via pytest
+pluggy==1.6.0
+    # via pytest
 psycopg2-binary==2.9.9
     # via -r requirements.in
 pydantic==2.5.0
     # via
-    #   -r requirements.in
     #   fastapi
+    #   pydantic-geojson
     #   pydantic-settings
 pydantic-core==2.14.1
     # via pydantic
+pydantic-geojson==0.3.2
+    # via -r requirements.in
 pydantic-settings==2.1.0
+    # via -r requirements.in
+pygments==2.20.0
+    # via pytest
+pytest==9.0.3
     # via -r requirements.in
 python-dotenv==1.0.0
     # via
-    #   -r requirements.in
     #   pydantic-settings
     #   uvicorn
 pyyaml==6.0.3
     # via uvicorn
+requests==2.34.2
+    # via -r requirements.in
 sniffio==1.3.1
-    # via anyio
-sqlalchemy==2.0.23
     # via
-    #   -r requirements.in
-    #   alembic
+    #   anyio
+    #   httpcore
+    #   httpx
+sqlalchemy==2.0.23
+    # via alembic
 starlette==0.27.0
     # via fastapi
+tomli==2.4.1
+    # via pytest
 typing-extensions==4.15.0
     # via
     #   alembic
@@ -66,6 +101,8 @@ typing-extensions==4.15.0
     #   pydantic-core
     #   sqlalchemy
     #   uvicorn
+urllib3==2.7.0
+    # via requests
 uvicorn[standard]==0.24.0
     # via -r requirements.in
 uvloop==0.22.1
