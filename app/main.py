@@ -37,7 +37,7 @@ async def health():
     return {"status": "healthy"}
 
 
-@app.get("/dwarsprofiel", methods=["GET", "POST"])
+@app.api_route("/dwarsprofiel", methods=["GET", "POST"])
 async def get_dwarsprofiel():
     """Geeft een standaard GeoJSON-dwarsprofiel terug."""
     return {
