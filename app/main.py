@@ -31,7 +31,7 @@ async def root():
     }
 
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "POST"]) # Health check endpoint that accepts both GET and POST requests
 async def health():
     """Health check endpoint"""
     return {"status": "healthy"}
