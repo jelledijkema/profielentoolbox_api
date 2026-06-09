@@ -1,47 +1,5 @@
-"""Main application entry point for Profielentool API"""
 
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-from app.config import settings
-from app.models.validation import validate_is_linestring
-
-app = FastAPI(
-    title=settings.PROJECT_NAME,
-    description="API for Profielentool",
-    version="1.0.0",
-)
-
-# Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-@app.get("/")
-async def root():
-    """Root endpoint"""
-    return {
-        "message": "Welcome to Profielentool API",
-        "version": "1.0.0",
-        "docs": "/docs",
-    }
-
-
-@app.api_route("/health", methods=["GET", "POST"]) # Health check endpoint that accepts both GET and POST requests
-async def health():
-    """Health check endpoint"""
-    return {"status": "healthy"}
-
-
-@app.api_route("/dwarsprofiel", methods=["GET", "POST"])
-async def get_dwarsprofiel():
-    """Geeft een standaard GeoJSON-dwarsprofiel terug."""
-    return {
+default_geoJSON = {
   "type": "FeatureCollection",
   "spatialReference": { "wkid": 28992 },
   "layers": [
@@ -246,24 +204,3 @@ async def get_dwarsprofiel():
     }
   ]
 }
-
-# @app.api_route("/dwarsprofiel/validate", methods=["GET", "POST"])
-# async def validate_dwarsprofiel(request: Request):
-#     data = await request.json()
-
-#     # Valideer of 'geometry' bestaat
-#     if "geometry" not in data:
-#         raise HTTPException(status_code=400, detail="Ontbrekend veld: geometry")
-
-#     if validate_is_linestring(data["geometry"]) == False:
-#         raise HTTPException(status_code=400, detail="Ongeldige geometry: moet een LineString zijn")
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(
-        app,
-        host=settings.HOST,
-        port=settings.PORT,
-    )
