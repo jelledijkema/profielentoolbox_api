@@ -383,7 +383,7 @@ default_geoJSON_2 = {
         "diameter_mm": 400,
         "materiaal": "Beton",
         "aanlegjaar": 1972,
-        "druk_bar": null,
+        "druk_bar": None,
         "diepte_mv_m": 2.4
       }
     },

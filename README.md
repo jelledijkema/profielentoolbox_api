@@ -114,7 +114,8 @@ Set these in your Render dashboard or `.env` file:
 
 ### Which Endpoints?
 
-Configurated in app/main.py
+- Configurated in app/main.py
+- https://profielentoolbox-api.onrender.com/
 
 ## Deploy new version of the API
 
