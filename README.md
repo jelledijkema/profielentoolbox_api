@@ -115,3 +115,11 @@ Set these in your Render dashboard or `.env` file:
 ### Which Endpoints?
 
 Configurated in app/main.py
+
+## Deploy new version of the API
+
+1. Create a local branch
+2. Commit changes
+3. Merge branch into main
+4. Render polls for a new commit on main and deploys a new version
+

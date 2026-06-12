@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.models.validation import validate_is_linestring
 
-from app.models.default import default_geoJSON
+from app.models.default import default_geoJSON, default_geoJSON_2
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -40,10 +40,16 @@ async def health():
     return {"status": "healthy"}
 
 
-@app.api_route("/dwarsprofiel", methods=["GET", "POST"])
+@app.api_route("/dwarsprofiel/1", methods=["GET", "POST"])
 async def get_dwarsprofiel():
     """Geeft een standaard GeoJSON-dwarsprofiel terug."""
     return default_geoJSON
+
+
+@app.api_route("/dwarsprofiel/2", methods=["GET", "POST"])
+async def get_dwarsprofiel():
+    """Geeft een standaard GeoJSON-dwarsprofiel terug."""
+    return default_geoJSON_2
 
 
 if __name__ == "__main__":
