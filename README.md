@@ -14,31 +14,20 @@ Profielentool_API/
 │   ├── __init__.py
 │   ├── main.py                   # Application entry point
 │   ├── config.py                 # Configuration settings
-│   ├── api/                      # API routes
-│   │   ├── __init__.py
-│   │   └── v1/
-│   │       ├── __init__.py
-│   │       └── endpoints/        # API endpoints
 │   ├── models/                   # Pydantic models
 │   │   ├── __init__.py
-│   │   └── schemas.py
-│   ├── database/                 # Database related
-│   │   ├── __init__.py
-│   │   ├── base.py
-│   │   ├── session.py
-│   │   └── models.py
-│   └── core/                     # Core utilities
-│       ├── __init__.py
-│       └── middleware.py
+|   |   ├── default.py
+|   |   ├── schema.py
+│   │   └── validation.py
 ├── tests/                        # Test suite
 │   ├── __init__.py
 │   ├── conftest.py
 │   └── test_api.py
+│   └── test_arcgis_post.py
+└── venv-profielentool-api        # virtual environment that contains the libraries under requirements
 ├── requirements.in               # Python dependencies (source)
 ├── requirements.txt              # Python dependencies (pinned)
-├── .env.example                  # Environment variables template
 ├── .gitignore                    # Git ignore rules
-├── Makefile                      # Development commands
 └── README.md                     # This file
 ```
 
@@ -102,43 +91,27 @@ pip install -r requirements.txt
 
 ### Prerequisites
 
-- Render account
+- Render account (https://dashboard.render.com/)
 - GitHub repository with this code
 
 ### Deployment Steps
 
-1. **Connect your repository** to Render
+1. **Make a project** on Render
 2. **Create a new Web Service** on Render
-3. **Configure the service:**
-   - Environment: Python 3.11
+3. **Connect to your repository** (i.e.GitHub) with this repository and select branch (settings on Render)
+4. **Configure the service:**
+   - Environment: Python 3.10
    - Build Command: `pip install -r requirements.txt`
    - Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. **Add environment variables** in Render dashboard
-5. **Deploy**
+5. **Add environment variables** in Render dashboard
+6. **Deploy**
 
 ### Environment Variables
 
 Set these in your Render dashboard or `.env` file:
 
-- `DATABASE_URL`: PostgreSQL connection string
-- `ENVIRONMENT`: `production` or `development`
-- `DEBUG`: `False` for production
+- Currently None
 
-## API Documentation
+### Which Endpoints?
 
-API endpoints follow RESTful conventions. Documentation is auto-generated and available at `/docs` when running the application.
-
-## Contributing
-
-1. Create a feature branch
-2. Make your changes
-3. Run tests
-4. Submit a pull request
-
-## License
-
-[Add your license information]
-
-## Support
-
-For issues and questions, please open an issue in the repository.
+Configurated in app/main.py
